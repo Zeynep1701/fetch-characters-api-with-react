@@ -10,7 +10,7 @@ const AllCharactersPage = () => {
       if (responseFromBackend.ok) {
         const parsed = await responseFromBackend.json()
         console.log(parsed)
-        setCharacters(parsed.characters)
+        setCharacters(parsed)
       }
     } catch (error) {
       console.error(error)
@@ -30,6 +30,7 @@ const AllCharactersPage = () => {
             <Link to={`/characters/${character.id}`}> {character.name}</Link>
           </li>
         ))}
+        <Link to="/characters/create"><button>Create a new character!</button></Link>
       </ul>
     </>
   )
